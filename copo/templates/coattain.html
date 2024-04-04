@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% set s=namespace(e1=0,e2=0,f1=0,f2=0)%}
+  {% set d=namespace(e1=0,e2=0,f1=0,f2=0)%}
+  <table border="2px solid black">
+    <tr>
+      <td>Course Name</td>
+      <td>Internal-Average</td>
+      <td>External-Average</td>
+      <td>(A+B)/2</td>
+      <td>Direct Level</td>
+      <td>Indirect Average</td>
+      <td>Indirect Level</td>
+      <td>80%(Direct)+20%(Indirect)</td>
+    </tr>
+    
+    {% for i in range(0,4) %}
+    <tr>
+      <td>{{subject[i] | capitalize }}</td>
+      <td>{{percie[i]}}</td>
+      <td>{{perca[i]}}</td>
+      {% set s.e1=(percie[i]+perca[i])/2 %}
+      <td>{{s.e1}}</td>
+      {% if s.e1 >= 41 and s.e1 <= 50 %}
+        {% set s.e1=1 %}
+      {% elif s.e1 >= 51 and s.e1 <= 60 %}
+        {% set s.e1=2 %}
+      {% elif s.e1 >= 61 %}
+        {% set s.e1=3 %}
+      {% endif %}
+      <td>{{s.e1}}</td>
+      <td>{{inper[i]}}</td>
+      {% if inper[i] >= 41 and inper[i] <= 50 %}
+        {% set d.e1=1 %}
+      {% elif inper[i] >= 51 and inper[i] <= 60 %}
+        {% set d.e1=2 %}
+      {% elif inper[i] >= 61 %}
+        {% set d.e1=3 %}
+      {% endif %}
+      <td>{{d.e1}}</td>
+      {% set total= (80/100*s.e1)+(20/100*d.e1) %}
+      <td>{{total}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>Enter a New Mapping :<a href="/matrix">Click Here</a></p>
+</body>
+</html>

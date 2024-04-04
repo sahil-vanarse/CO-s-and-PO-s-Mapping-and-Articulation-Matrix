@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="static/img/obe.png" rel="icon">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(#37517e,white);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        table {
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: rgb(220, 220, 220);
+        }
+        table th{
+            height: 5vh;
+            font-size: 30;
+            width: 10vw;
+        }
+        table td{
+            width: 10vw;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 20;
+            height: 2vh;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        {% set p=namespace(a=0,b=0,c=0,d=0,e=0,) %}
+        {% set s=namespace(a=0,b=0,c=0,d=0,e=0,cnt=0) %}
+        <h1 style="color: rgb(197, 193, 193); text-decoration:underline;">Subject : {{subject|upper}}</h1>
+    <table border="2px" >
+        <tr>
+            <th>Sr.</th>
+            <th>Name</th>
+            <th>CIE1</th>
+            <th>CA1</th>
+        </tr>
+        {% for user in direct %}
+        {% set s.cnt=s.cnt+1 %}
+        {% set s.a=s.a+user[2] %}
+        {% set s.b=s.b+user[3] %}
+        <tr>
+            <td>{{user[0]}}</td>
+            <td>{{user[1]}}</td>
+            <td>{{user[2]}}</td>
+            <td>{{user[3]}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            {% set s.a=s.a/s.cnt %}
+            {% set s.b=s.b/s.cnt %}
+            <td>-</td>
+            <td>Average</td>
+            <td> {{s.a}}</td>
+            <td> {{s.b}}</td>
+        </tr>
+        {% for user in direct %}
+            {% if s.a < user[2] %}
+            {% set p.a=p.a+1 %}
+            {% endif %}
+            {% if s.b < user[3] %}
+            {% set p.b=p.b+1 %}
+            {% endif %}
+            {% endfor %}
+        <tr>
+            <td>-</td>
+            <td>Above Average</td>
+            <td> {{p.a}}</td>
+            <td> {{p.b}}</td>
+        </tr>
+            {% set p.a=(p.a*100)/10 %}
+            {% set p.b=(p.b*100)/10 %}
+            <tr>
+                <td>-</td>
+                <td>Percentage</td>
+                <td> {{p.a}}</td>
+                <td> {{p.b}}</td>
+            </tr>
+        </table>
+    {% set total=(p.a+p.b)/2 %}
+    <br><br>
+    <mark><big>Overall Percentage :{{total}}</big></mark>
+    {% if total >= 41 and total <= 50 %}
+        <h1><span style="margin:0;padding:0;background-color:pink;">Level-Low</span></h1>
+        {% set level=1 %}
+    {% elif total >= 51 and total <= 60 %}
+    <h1><span style="margin:0;padding:0;background-color:pink;">Level-Medium</span></h1>
+    {% set level=2 %}
+    {% elif total >= 61 %}
+    <h1><span style="margin:0;padding:0;background-color:pink;">Level-High</span></h1>
+    {% set level=3 %}
+    {% endif %}
+</center>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js">
+  </script>
+  
+  <!-- Favicons -->
+  <link href="static/img/obe.png" rel="icon">
+  <!-- <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+
+  
+  <title>Result</title>
+  <style>
+    .container {
+      position: absolute;
+      top: 5%;
+      left: 6%;
+      border-radius: 7px;
+    }
+
+    .card {
+      box-sizing: content-box;
+      width: 100% ;
+      height: max-content;
+      padding: 30px;
+      border: 1px solid black;
+      font-style: sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    #button {
+      background-color: #4caf50;
+      border-radius: 5px;
+      margin-left: 0%;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    /*    h2 {
+      text-align: center;
+      color: #24650b;
+    }*/
+  </style>
+
+</head>
+<body><center>
+    <button id="button">Generate PDF</button>
+    <button><a class="bottom" href="{{url_for('year')}}">back</a></button>
+</center>
+  <div class="container" style="size: 4in 6in ; width: 70vw;">
+        <!-- <button id="button">Generate PDF</button> -->
+        <div class="card" id="makepdf" style="width: 1200px; margin-bottom: 30px;">
+         
+
+
+        </div>
+    </div>
+
+   
+</body>
+
+<script>
+  var button = document.getElementById("button");
+  var makepdf = document.getElementById("makepdf");
+
+  button.addEventListener("click", function () {
+    var mywindow = window.open("", "PRINT",
+      "height=400,width=600");
+
+    mywindow.document.write(makepdf.innerHTML);
+
+    mywindow.document.close();
+    mywindow.focus();
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+  });
+</script>
+
+</html>
