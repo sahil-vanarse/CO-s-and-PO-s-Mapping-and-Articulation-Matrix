@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename = 'js/skmv2.js')}}"></script> -->
+    <style>
+        body{
+            background-image: linear-gradient(#37517e,white);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        table,
+        th,
+        td {
+            border: 1.7px solid rgb(4, 4, 4);
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            background-color: rgb(187, 186, 186);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        {% set t=namespace(p=0) %}
+        <h1 id="row">{{pos}}</h1>
+        <h1 id="row">{{pso}}</h1>
+        <h1 id="row">{{percie}}</h1>
+        <h1 id="row">{{perca}}</h1>
+        <h1 id="row">{{inper}}</h1>
+        {% for row in data %}
+        <table id="hell">
+        <tr>
+            <td>{{row[0]}}</td> 
+            <td>{{row[1]}}</td>
+        </tr>
+        </table>
+        {% endfor %}
+    </center>
+</body>
+
+</html>

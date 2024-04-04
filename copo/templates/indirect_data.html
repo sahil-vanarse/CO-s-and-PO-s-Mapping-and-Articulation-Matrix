@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="static/img/obe.png" rel="icon">
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(#37517e,white);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    table {
+        border: 2px solid black;
+        border-radius: 8px;
+        background-color: rgb(220, 220, 220);
+    }
+    table th{
+        height: 8vh;
+        font-size: 30;
+    }
+    table td{
+        width: 70px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 20;
+        height: 5vh;
+    }
+</style>
+</head>
+<body>
+    <center>
+        <h1 style="color: rgb(197, 193, 193) ; text-decoration:underline; ">Subject : {{subject|upper}}</h1>
+    {% set t=namespace(no=0) %}
+    {% set q1=namespace(a=0,b=0,c=0,d=0,e=0,cnt1=0,avg=0,abv=0) %}
+    {% set q2=namespace(a=0,b=0,c=0,d=0,e=0,cnt2=0,avg=0,abv=0) %}
+    {% set q3=namespace(a=0,b=0,c=0,d=0,e=0,cnt3=0,avg=0,abv=0) %}
+    {% set q4=namespace(a=0,b=0,c=0,d=0,e=0,cnt4=0,avg=0,abv=0) %}
+    {% set q5=namespace(a=0,b=0,c=0,d=0,e=0,cnt5=0,avg=0,abv=0) %}
+    {% set q6=namespace(a=0,b=0,c=0,d=0,e=0,cnt6=0,avg=0,abv=0) %}
+    {% set q7=namespace(a=0,b=0,c=0,d=0,e=0,cnt7=0,avg=0,abv=0) %}
+    {% set q8=namespace(a=0,b=0,c=0,d=0,e=0,cnt8=0,avg=0,abv=0) %}
+    {% set q9=namespace(a=0,b=0,c=0,d=0,e=0,cnt9=0,avg=0,abv=0) %}
+    {% set q10=namespace(a=0,b=0,c=0,d=0,e=0,cnt10=0,avg=0,abv=0) %}
+    <!-- Start of for loop -->
+        {% for user in tablee %}
+            {% if user[2]=='Excellent'%}{% set q1.a=q1.a+1 %}
+            {% elif user[2]=='Very Good' %}{% set q1.b=q1.b+1 %}
+            {% elif user[2]=='Good' %}{% set q1.c=q1.c+1 %}
+            {% elif user[2]=='Average' %}{% set q1.d=q1.d+1 %}
+            {% elif user[2]=='Poor' %}{% set q1.e=q1.e+1 %}{% endif %}
+
+            {% if user[3]=='Excellent'%}{% set q2.a=q2.a+1 %}
+            {% elif user[3]=='Very Good' %}{% set q2.b=q2.b+1 %}
+            {% elif user[3]=='Good' %}{% set q2.c=q2.c+1 %}
+            {% elif user[3]=='Average' %}{% set q2.d=q2.d+1 %}
+            {% elif user[3]=='Poor' %}{% set q2.e=q2.e+1 %}{% endif %}
+
+            {% if user[4]=='Excellent'%}{% set q3.a=q3.a+1 %}
+            {% elif user[4]=='Very Good' %}{% set q3.b=q3.b+1 %}
+            {% elif user[4]=='Good' %}{% set q3.c=q3.c+1 %}
+            {% elif user[4]=='Average' %}{% set q3.d=q3.d+1 %}
+            {% elif user[4]=='Poor' %}{% set q3.e=q3.e+1 %}{% endif %}
+
+            {% if user[5]=='Excellent' %}{% set q4.a=q4.a+1 %}
+            {% elif user[5]=='Very Good' %}{% set q4.b=q4.b+1 %}
+            {% elif user[5]=='Good' %}{% set q4.c=q4.c+1 %}
+            {% elif user[5]=='Average' %}{% set q4.d=q4.d+1 %}
+            {% elif user[5]=='Poor' %}{% set q4.e=q4.e+1 %}{% endif %}
+
+            {% if user[6]=='Excellent'%}{% set q5.a=q5.a+1 %}
+            {% elif user[6]=='Very Good' %}{% set q5.b=q5.b+1 %}
+            {% elif user[6]=='Good' %}{% set q5.c=q5.c+1 %}
+            {% elif user[6]=='Average' %}{% set q5.d=q5.d+1 %}
+            {% elif user[6]=='Poor' %}{% set q5.e=q5.e+1 %}{% endif %}
+
+            {% if user[7]=='Excellent'%}{% set q6.a=q6.a+1 %}
+            {% elif user[7]=='Very Good' %}{% set q6.b=q6.b+1 %}
+            {% elif user[7]=='Good' %}{% set q6.c=q6.c+1 %}
+            {% elif user[7]=='Average' %}{% set q6.d=q6.d+1 %}
+            {% elif user[7]=='Poor' %}{% set q6.e=q6.e+1 %}{% endif %}
+
+            {% if user[8]=='Excellent'%}{% set q7.a=q7.a+1 %}
+            {% elif user[8]=='Very Good' %}{% set q7.b=q7.b+1 %}
+            {% elif user[8]=='Good' %}{% set q7.c=q7.c+1 %}
+            {% elif user[8]=='Average' %}{% set q7.d=q7.d+1 %}
+            {% elif user[8]=='Poor' %}{% set q7.e=q7.e+1 %}{% endif %}
+
+            {% if user[9]=='Excellent'%}{% set q8.a=q8.a+1 %}
+            {% elif user[9]=='Very Good' %}{% set q8.b=q8.b+1 %}
+            {% elif user[9]=='Good' %}{% set q8.c=q8.c+1 %}
+            {% elif user[9]=='Average' %}{% set q8.d=q8.d+1 %}
+            {% elif user[9]=='Poor' %}{% set q8.e=q8.e+1 %}{% endif %}
+
+            {% if user[10]=='Excellent'%}{% set q9.a=q9.a+1 %}
+            {% elif user[10]=='Very Good' %}{% set q9.b=q9.b+1 %}
+            {% elif user[10]=='Good' %}{% set q9.c=q9.c+1 %}
+            {% elif user[10]=='Average' %}{% set q9.d=q9.d+1 %}
+            {% elif user[10]=='Poor' %}{% set q9.e=q9.e+1 %}{% endif %}
+
+            {% if user[11]=='Excellent'%}{% set q10.a=q10.a+1 %}
+            {% elif user[11]=='Very Good' %}{% set q10.b=q10.b+1 %}
+            {% elif user[11]=='Good' %}{% set q10.c=q10.c+1 %}
+            {% elif user[11]=='Average' %}{% set q10.d=q10.d+1 %}
+            {% elif user[11]=='Poor' %}{% set q10.e=q10.e+1 %}
+            {% endif %}
+            
+        {% set q1.cnt1=(5*q1.a)+(4*q1.b)+(3*q1.c)+(2*q1.d)+(1*q1.e) %}
+        {% set q2.cnt2=(5*q2.a)+(4*q2.b)+(3*q2.c)+(2*q2.d)+(1*q2.e) %}
+        {% set q3.cnt3=(5*q3.a)+(4*q3.b)+(3*q3.c)+(2*q3.d)+(1*q3.e) %}
+        {% set q4.cnt4=(5*q4.a)+(4*q4.b)+(3*q4.c)+(2*q4.d)+(1*q4.e) %}
+        {% set q5.cnt5=(5*q5.a)+(4*q5.b)+(3*q5.c)+(2*q5.d)+(1*q5.e) %}
+        {% set q6.cnt6=(5*q6.a)+(4*q6.b)+(3*q6.c)+(2*q6.d)+(1*q6.e) %}
+        {% set q7.cnt7=(5*q7.a)+(4*q7.b)+(3*q7.c)+(2*q7.d)+(1*q7.e) %}
+        {% set q8.cnt8=(5*q8.a)+(4*q8.b)+(3*q8.c)+(2*q8.d)+(1*q8.e) %}
+        {% set q9.cnt9=(5*q9.a)+(4*q9.b)+(3*q9.c)+(2*q9.d)+(1*q9.e) %}
+        {% set q10.cnt10=(5*q10.a)+(4*q10.b)+(3*q10.c)+(2*q10.d)+(1*q10.e) %}
+
+        {% set t.no=t.no+1 %}
+        {% endfor %}
+
+        <!-- End of for loop -->
+
+        {% set q1.avg=q1.cnt1/t.no %}
+        {% set q2.avg=q2.cnt2/t.no %}
+        {% set q3.avg=q3.cnt3/t.no %}
+        {% set q4.avg=q4.cnt4/t.no %}
+        {% set q5.avg=q5.cnt5/t.no %}
+        {% set q6.avg=q6.cnt6/t.no %}
+        {% set q7.avg=q7.cnt7/t.no %}
+        {% set q8.avg=q8.cnt8/t.no %}
+        {% set q9.avg=q9.cnt9/t.no %}
+        {% set q10.avg=q10.cnt10/t.no %}
+
+        {% if 5 > q1.avg %}{% set q1.abv = q1.abv+q1.a%}{% endif %}
+        {% if 4 > q1.avg %}{% set q1.abv =q1.abv+q1.b %}{% endif %}
+        {% if 3 > q1.avg %}{% set q1.abv =q1.abv+q1.c %}{% endif %}
+        {% if 2 > q1.avg %}{% set q1.abv =q1.abv+q1.d %}{% endif %}
+        {% if 1 > q1.avg %}{% set q1.abv =q1.abv+q1.e %}{% endif %}
+
+        {% if 5 > q2.avg %}{% set q2.abv = q2.abv+q2.a%}{% endif %}
+        {% if 4 > q2.avg %}{% set q2.abv =q2.abv+q2.b %}{% endif %}
+        {% if 3 > q2.avg %}{% set q2.abv =q2.abv+q2.c %}{% endif %}
+        {% if 2 > q1.avg %}{% set q2.abv =q2.abv+q2.d %}{% endif %}
+        {% if 1 > q2.avg %}{% set q2.abv =q2.abv+q2.e %}{% endif %}
+
+        {% if 5 > q3.avg %}{% set q3.abv =q3.abv+q3.a%}{% endif %}
+        {% if 4 > q3.avg %}{% set q3.abv =q3.abv+q3.b %}{% endif %}
+        {% if 3 > q3.avg %}{% set q3.abv =q3.abv+q3.c %}{% endif %}
+        {% if 2 > q3.avg %}{% set q3.abv =q3.abv+q3.d %}{% endif %}
+        {% if 1 > q3.avg %}{% set q3.abv =q3.abv+q3.e %}{% endif %}
+
+        {% if 5 > q4.avg %}{% set q4.abv =q4.abv+q4.a%}{% endif %}
+        {% if 4 > q4.avg %}{% set q4.abv =q4.abv+q4.b %}{% endif %}
+        {% if 3 > q4.avg %}{% set q4.abv =q4.abv+q4.c %}{% endif %}
+        {% if 2 > q4.avg %}{% set q4.abv =q4.abv+q4.d %}{% endif %}
+        {% if 1 > q4.avg %}{% set q4.abv =q4.abv+q4.e %}{% endif %}
+
+        {% if 5 > q5.avg %}{% set q5.abv =q5.abv+q5.a%}{% endif %}
+        {% if 4 > q5.avg %}{% set q5.abv =q5.abv+q5.b %}{% endif %}
+        {% if 3 > q5.avg %}{% set q5.abv =q5.abv+q5.c %}{% endif %}
+        {% if 2 > q5.avg %}{% set q5.abv =q5.abv+q5.d %}{% endif %}
+        {% if 1 > q5.avg %}{% set q5.abv =q5.abv+q5.e %}{% endif %}
+
+        {% if 5 > q6.avg %}{% set q6.abv =q6.abv+q6.a%}{% endif %}
+        {% if 4 > q6.avg %}{% set q6.abv =q6.abv+q6.b %}{% endif %}
+        {% if 3 > q6.avg %}{% set q6.abv =q6.abv+q6.c %}{% endif %}
+        {% if 2 > q6.avg %}{% set q6.abv =q6.abv+q6.d %}{% endif %}
+        {% if 1 > q6.avg %}{% set q6.abv =q6.abv+q6.e %}{% endif %}
+
+        {% if 5 > q7.avg %}{% set q7.abv =q7.abv+q7.a%}{% endif %}
+        {% if 4 > q7.avg %}{% set q7.abv =q7.abv+q7.b %}{% endif %}
+        {% if 3 > q7.avg %}{% set q7.abv =q7.abv+q7.c %}{% endif %}
+        {% if 2 > q7.avg %}{% set q7.abv =q7.abv+q7.d %}{% endif %}
+        {% if 1 > q7.avg %}{% set q7.abv =q7.abv+q7.e %}{% endif %}
+
+        {% if 5 > q8.avg %}{% set q8.abv =q8.abv+q8.a%}{% endif %}
+        {% if 4 > q8.avg %}{% set q8.abv =q8.abv+q8.b %}{% endif %}
+        {% if 3 > q8.avg %}{% set q8.abv =q8.abv+q8.c %}{% endif %}
+        {% if 2 > q8.avg %}{% set q8.abv =q8.abv+q8.d %}{% endif %}
+        {% if 1 > q8.avg %}{% set q8.abv =q8.abv+q8.e %}{% endif %}
+
+        {% if 5 > q9.avg %}{% set q9.abv =q9.abv+q9.a%}{% endif %}
+        {% if 4 > q9.avg %}{% set q9.abv =q9.abv+q9.b %}{% endif %}
+        {% if 3 > q9.avg %}{% set q9.abv =q9.abv+q9.c %}{% endif %}
+        {% if 2 > q9.avg %}{% set q9.abv =q9.abv+q9.d %}{% endif %}
+        {% if 1 > q9.avg %}{% set q9.abv =q9.abv+q9.e %}{% endif %}
+
+        {% if 5 > q10.avg %}{% set q10.abv =q10.abv+q10.a%}{% endif %}
+        {% if 4 > q10.avg %}{% set q10.abv =q10.abv+q10.b %}{% endif %}
+        {% if 3 > q10.avg %}{% set q10.abv =q10.abv+q10.c %}{% endif %}
+        {% if 2 > q10.avg %}{% set q10.abv =q10.abv+q10.d %}{% endif %}
+        {% if 1 > q10.avg %}{% set q10.abv =q10.abv+q10.e %}{% endif %}
+
+        {% set q1.abv=(q1.abv*100)/20 %}
+        {% set q2.abv=(q2.abv*100)/20 %}
+        {% set q3.abv=(q3.abv*100)/20 %}
+        {% set q4.abv=(q4.abv*100)/20 %}
+        {% set q5.abv=(q5.abv*100)/20 %}
+        {% set q6.abv=(q6.abv*100)/20 %}
+        {% set q7.abv=(q7.abv*100)/20 %}
+        {% set q8.abv=(q8.abv*100)/20 %}
+        {% set q9.abv=(q9.abv*100)/20 %}
+        {% set q10.abv=(q10.abv*100)/20 %}
+        <table border="2px" >
+
+        <tr>
+        <td>Rank 5</td>
+        <td>total</td><td>{{q1.a}}</td><td>{{q2.a}}</td><td>{{q3.a}}</td><td>{{q4.a}}</td><td>{{q5.a}}</td>
+        <td>{{q6.a}}</td><td>{{q7.a}}</td><td>{{q8.a}}</td><td>{{q9.a}}</td><td>{{q10.a}}</td>
+        </tr>
+        <tr>
+            <td>Rank 4</td>
+            <td>total</td><td>{{q1.b}}</td><td>{{q2.b}}</td><td>{{q3.b}}</td><td>{{q4.b}}</td><td>{{q5.b}}</td>
+            <td>{{q6.b}}</td><td>{{q7.b}}</td><td>{{q8.b}}</td><td>{{q9.b}}</td><td>{{q10.b}}</td>
+        </tr>
+        <tr>
+            <td>Rank 3</td>
+            <td>total</td><td>{{q1.c}}</td><td>{{q2.c}}</td><td>{{q3.c}}</td><td>{{q4.c}}</td><td>{{q5.c}}</td>
+            <td>{{q6.c}}</td><td>{{q7.c}}</td><td>{{q8.c}}</td><td>{{q9.c}}</td><td>{{q10.c}}</td>
+        </tr>
+        <tr>
+            <td>Rank 2</td>
+            <td>total</td><td>{{q1.d}}</td><td>{{q2.d}}</td><td>{{q3.d}}</td><td>{{q4.d}}</td><td>{{q5.d}}</td>
+            <td>{{q6.d}}</td><td>{{q7.d}}</td><td>{{q8.d}}</td><td>{{q9.d}}</td><td>{{q10.d}}</td>
+        </tr>
+        <tr>
+            <td>Rank 1</td>
+            <td>total</td><td>{{q1.e}}</td><td>{{q2.e}}</td><td>{{q3.e}}</td><td>{{q4.e}}</td><td>{{q5.e}}</td>
+            <td>{{q6.e}}</td><td>{{q7.e}}</td><td>{{q8.e}}</td><td>{{q9.e}}</td><td>{{q10.e}}</td>
+        </tr>
+
+        <tr>
+            <td>-</td><td>Rank Que</td>
+            <td>{{q1.cnt1}}</td><td>{{q2.cnt2}}</td><td>{{q3.cnt3}}</td><td>{{q4.cnt4}}</td><td>{{q5.cnt5}}</td>
+            <td>{{q6.cnt6}}</td><td>{{q7.cnt7}}</td><td>{{q8.cnt8}}</td><td>{{q1.cnt1}}</td><td>{{q10.cnt10}}</td>
+        </tr>
+        <tr>
+            <td>-</td><td>Average</td>
+            <td>{{q1.avg}}</td><td>{{q2.avg}}</td><td>{{q3.avg}}</td><td>{{q4.avg}}</td><td>{{q5.avg}}</td>
+            <td>{{q6.avg}}</td><td>{{q7.avg}}</td><td>{{q8.avg}}</td><td>{{q9.avg}}</td><td>{{q10.avg}}</td>
+        </tr>
+        <tr>
+            <td>-</td><td>Above Average</td>
+            <td>{{q1.abv}}</td><td>{{q2.abv}}</td><td>{{q3.abv}}</td><td>{{q4.abv}}</td><td>{{q5.abv}}</td>
+            <td>{{q6.abv}}</td><td>{{q7.abv}}</td><td>{{q8.abv}}</td><td>{{q9.abv}}</td><td>{{q10.abv}}</td>
+        </tr>
+        </table>
+
+        {% set total=(q1.abv+q2.abv+q3.abv+q4.abv+q5.abv+q6.abv+q7.abv+q8.abv+q9.abv+q10.abv)/10 %}
+        <br>
+        <mark><big>Overall Percentage :{{total}}</big></mark>
+        {% if total >= 41 and total <= 50 %}
+        <h1><span style="margin:0;padding:0;background-color:pink;">Level-Low</span></h1>
+    {% elif total >= 51 and total <= 60 %}
+    <h1><span style="margin:0;padding:0;background-color:pink;">Level-Medium</span></h1>
+    {% elif total >= 61 %}
+    <h1><span style="margin:0;padding:0;background-color:pink;">Level-high</span></h1>
+    {% endif %}
+
+</center>
+</body>
+</html>

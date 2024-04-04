@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>OBE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="/static/img/obe.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/static/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/static/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/assets/css/style.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Mar 09 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <script>
+    const btnDelete= document.querySelectorAll('.btn-delete');
+    const btnAdd= document.querySelectorAll('.btn-secondary');
+    
+    if(btnDelete) {
+      const btnArray = Array.from(btnDelete);
+      btnArray.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          if(!confirm('Are you sure you want to Delete it?')){
+            e.preventDefault();
+          }
+        });
+      })
+    }
+    if(btnAdd) {
+      const btnArray = Array.from(btnAdd);
+      btnArray.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          if(!confirm('Are you sure you want to Add it?')){
+            e.preventDefault();
+          }
+        });
+      })
+    }
+     
+    $(document).ready(function() {
+        $('#example').DataTable({     
+          "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+            "iDisplayLength": 3
+           } 
+        );
+    } );
+     
+    </script>
+
+</head>
+
+<body>
+    <header id="header" class="fixed-top " style="width: 100%;background-color:rgba(55,81,126, 0.9);">
+        <div class="container d-flex align-items-center" style="width: 100%;">
+    
+          <h1 class="logo me-auto"><a href="/"  style="font-size: 40px;">SKMV</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    
+          <nav id="navbar" class="navbar" >
+            <ul>
+              <li><a class="nav-link scrollto" href="/"  style="font-size: 20px;">Home</a></li>
+              <li><a class="nav-link scrollto " href="/choice"  style="font-size: 20px;">Files</a></li>
+              <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </header><!-- End Header -->
+
+  <!-- ======= Header ======= -->
+    <section class="section dashboard">
+      <div class="row" style="margin-top: 50px;" >
+        {% set sr=namespace(a=1,b=1,c=1)%}
+            <!-- Recent Sales -->
+            <div class="col-12" >
+              <div class="card recent-sales overflow-auto">
+
+                <div class="card-body">
+                  <center><h5 class="card-title">DIRECT DATA <span> </span></h5></center>
+
+                  <table class="table table-border datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Sr</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">CIE</th>
+                        <th scope="col">CA</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        {% for user in direct %}
+                        <th scope="row">{{sr.a}}</th>
+                        <td>{{user[1]}}</td>
+                        <td>{{user[2]}}</td>
+                        <td>{{user[3]}}</td>
+                      </tr>
+                      {% set sr.a=sr.a+1 %}
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+        </div><!-- End Left side columns -->
+
+        <div class="row" >
+            {% set sr=namespace(a=1,b=1,c=1)%}
+                <!-- Recent Sales -->
+                <div class="col-12" >
+                  <div class="card recent-sales overflow-auto">
+    
+                    <div class="card-body">
+                     <center><h5 class="card-title">INDIRECT DATA <span> </span></h5></center> 
+    
+                      <table class="table table-border datatable">
+                        <thead>
+                          <tr>
+                            <th scope="col">Sr</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Q1</th>
+                            <th scope="col">Q2</th>
+                            <th scope="col">Q3</th>
+                            <th scope="col">Q4</th>
+                            <th scope="col">Q5</th>
+                            <th scope="col">Q6</th>
+                            <th scope="col">Q7</th>
+                            <th scope="col">Q8</th>
+                            <th scope="col">Q9</th>
+                            <th scope="col">Q10</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            {% for user in indirect %}
+                            <th scope="row">{{sr.b}}</th>
+                            <td>{{user[1]}}</td>
+                            <td>{{user[2]}}</td>
+                            <td>{{user[3]}}</td>
+                            <td>{{user[4]}}</td>
+                            <td>{{user[5]}}</td>
+                            <td>{{user[6]}}</td>
+                            <td>{{user[7]}}</td>
+                            <td>{{user[8]}}</td>
+                            <td>{{user[9]}}</td>
+                            <td>{{user[10]}}</td>
+                            <td>{{user[11]}}</td>
+                          </tr>
+                          {% set sr.b=sr.b+1 %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+    
+                    </div>
+    
+                  </div>
+                </div><!-- End Recent Sales -->
+            </div><!-- End Left side columns -->
+
+            <div class="row" >
+                {% set sr=namespace(a=1,b=1,c=1)%}
+                    <!-- Recent Sales -->
+                    <div class="col-12" >
+                      <div class="card recent-sales overflow-auto">
+        
+                        <div class="card-body">
+                         <center><h5 class="card-title">ARTICULATION MATRIX <span></span></h5></center> 
+                        {% set pol= pos | length %}
+                        {% set psol= pso | length %}
+                          <table class="table table-border " border="2px ">
+                            <thead>
+                              <tr style="text-align: center; border: 2px solid black;">
+                                <th rowspan="2" style="border: 2px solid black;">CO<br>
+                                <p></p></th>
+                                {% if pos | length != 0 %}
+                                <th scope="col" colspan="{{pol}} " style="border: 2px solid black;">PO
+                                <p></p></th>
+                                {% endif %}
+                                <th scope="col" colspan="{{psol}}" style="border: 2px solid black;">PSO
+                                <p></p></th>
+                              </tr>
+                            </thead>
+                            <thead>
+                                <tr style="text-align: center;">
+                                    <th scope="row" style="border: 2px solid black;">Sr</th>
+                                    {% if pos | length != 0 %}
+                                    {% for i in range(0,pos | length)%}
+                                    <th scope="row" style="border: 2px solid black;">{{i+1}}</th>
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% for i in range(0,pso | length)%}
+                                    <th scope="row" style="border: 2px solid black;">{{i+1}}</th>
+                                    {% endfor %}
+                                </tr>
+                            {% for user in po %}
+                              <tr style="text-align: center;">
+                                <th scope="row" style="border: 2px solid black;">{{sr.c}}</th>
+                                {% for i in range (0,pos | length + pso | length )%}
+                                <td style="border: 1px solid black; background-color: white;">{{user[i]}}</td>
+                                {% endfor %}
+                              </tr>
+                              {% set sr.c=sr.c+1 %}
+                              {% endfor %}
+                            </thead>
+                          </table>
+        
+                        </div>
+        
+                      </div>
+                    </div><!-- End Recent Sales -->
+                </div><!-- End Left side columns -->
+       
+    </section>
+  <!-- ======= Footer ======= -->
+  <!-- <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>SKMV</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="#">SKMV</a>
+    </div>
+  </footer>End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/static/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/static/assets/vendor/quill/quill.min.js"></script>
+  <script src="/static/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/static/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>

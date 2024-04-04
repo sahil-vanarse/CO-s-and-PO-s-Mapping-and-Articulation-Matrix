@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Python Flask Studnet Create, read, update and delete (CRUD) using mysql</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+ 
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+ 
+  </head>
+  <body>
+ 
+    <!-- NAVIGATION  -->
+    <nav class="navbar navbar-dark bg-dark">
+      <p style="color: aliceblue; ">Lets do some work...with tables</p>
+    </nav>
+ 
+    <div class="container pt-4" style="margin: 0,50px,0,50px;">
+      {% block body %}
+      {% endblock %}
+    </div>
+  
+<script>
+const btnDelete= document.querySelectorAll('.btn-delete');
+const btnAdd= document.querySelectorAll('.btn-secondary');
+
+if(btnDelete) {
+  const btnArray = Array.from(btnDelete);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('Are you sure you want to Delete it?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+if(btnAdd) {
+  const btnArray = Array.from(btnAdd);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('Are you sure you want to Add it?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+ 
+$(document).ready(function() {
+    $('#example').DataTable({     
+      "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+        "iDisplayLength": 3
+       } 
+    );
+} );
+ 
+</script>
+  </body>
+</html>
